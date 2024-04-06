@@ -1,6 +1,5 @@
 import React from 'react';
 import {notFound} from "next/navigation";
-import article from "../ui/Article";
 import LiveTimestamp from "../ui/LiveTimestamp";
 
 type Props = {

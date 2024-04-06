@@ -6,11 +6,10 @@ const fetchNews = async (
     isDynamic? : boolean
 )=>{
 
-    console.log(category)
 
     const res = await fetch(`http://api.mediastack.com/v1/news?access_key=${process.env.MEDIASTACK_API_KEY}${keyword==null ? "" :  `&keywords=${keyword}`}&categories=${category}&languages=en`,
         {
-            cache:  isDynamic ? "no-cache" : "default" ,
+            // cache:  isDynamic ? "no-cache" : "default" ,
             next:  isDynamic ? {revalidate:0} : {revalidate:20}
         });
 
