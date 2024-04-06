@@ -18,7 +18,6 @@ export const metadata: Metadata = {
     const news : NewsResponse = await fetchNews(categories.join(","))
   return (
     <div>
-        <p>asd</p>
      <NewsList news={news}/>
     </div>
   );
