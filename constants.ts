@@ -1,9 +1,9 @@
 export const categories:Category[]= [
-    "General",
-    "Business",
-    "Entertainment",
-    "Health",
-    "Science",
-    "Sports",
-    "Technology"
+    "general",
+    "business",
+    "entertainment",
+    "health",
+    "science",
+    "sports",
+    "technology"
 ]

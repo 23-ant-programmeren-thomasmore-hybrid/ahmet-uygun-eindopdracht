@@ -1,31 +1,21 @@
+import sortNewsByImage from "./sortNewsByImage";
 
 const fetchNews = async (
-    // category? : Category | string,
-    // keyword? : string,
+    category? : Category | string,
+    keyword? : string,
     isDynamic? : boolean
 )=>{
 
-    const res = await fetch(`http://api.mediastack.com/v1/news?access_key=${process.env.MEDIASTACK_API_KEY}`);
-        // ,
-        // {
-        //     method: 'POST',
-        //     cache: isDynamic ? "no-cache" : "default",
-        //     next: isDynamic ? {revalidate: 0} : {revalidate: 20},
-        //     body:JSON.stringify({
-        //         query,
-        //         variables:{
-        //             access_key:process.env.MEDIASTACK_API_KEY,
-        //             categories:category,
-        //             keywords:keyword,
-        //         }
-        //     })
-        //
-        // });
+    console.log(category)
+
+    const res = await fetch(`http://api.mediastack.com/v1/news?access_key=${process.env.MEDIASTACK_API_KEY}${keyword==null ? "" :  `&keywords=${keyword}`}&categories=${category}&languages=en`,
+        {
+            // cache:  "no-cache" ,
+            next:  {revalidate: 0}
+        });
 
     const newsResponse = await res.json();
-    // const news = sortNewsByImage(newsResponse.data);
-    return newsResponse;
-    // return newsResponse;
+    return sortNewsByImage(newsResponse);
 }
 
 export default fetchNews;

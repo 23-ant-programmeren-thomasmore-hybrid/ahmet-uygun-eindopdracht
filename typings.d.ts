@@ -25,11 +25,11 @@ type NewsResponse={
 
 
 type Category =
-    | "Business"
-    | "Entertainment"
-    | "General"
-    | "Health"
-    | "Science"
-    | "Sports"
-    | "Technology";
+    | "business"
+    | "entertainment"
+    | "general"
+    | "health"
+    | "science"
+    | "sports"
+    | "technology";
 
