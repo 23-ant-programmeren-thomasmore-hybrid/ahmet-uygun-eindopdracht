@@ -2,6 +2,7 @@ import React from 'react';
 import fetchNews from "../../../lib/fetchNews";
 import NewsList from "../../ui/NewsList";
 import {categories} from "../../../constants";
+import {ChatBubbleOvalLeftEllipsisIcon} from "@heroicons/react/24/solid";
 
 type Props = {
     params: {category:Category}
@@ -12,6 +13,8 @@ async function NewsCategory({params:{category}}:Props) {
         <div>
             <h1 className='headerTitle'>{category}</h1>
             <NewsList news={news}/>
+
+
         </div>
     );
 }
