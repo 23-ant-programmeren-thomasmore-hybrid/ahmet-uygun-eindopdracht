@@ -5,7 +5,9 @@ import Providers from "./Providers";
 import React from "react";
 import {ThemeProvider} from "next-themes";
 import {Inter} from "next/dist/compiled/@next/font/dist/google";
-
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 
 export const metadata: Metadata = {
     title: "INSIGHT NEWS",

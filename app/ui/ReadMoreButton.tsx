@@ -1,5 +1,6 @@
 'use client'
 import {useRouter} from "next/navigation";
+import { MdOutlineReadMore } from "react-icons/md";
 
 type Props = {
     article: Article
@@ -13,10 +14,10 @@ function ReadMoreButton({article}: Props) {
         router.push(url);
     }
     return (
-        <button onClick={handleClick}
-                className='bg-purple-400 h-10 rounded-b-lg dark:text-gray-900 hover:bg-white'>
-Read More
-        </button>
+        <MdOutlineReadMore onClick={handleClick}
+                           className='h-8 w-8  rounded-b-lg hover:bg-slate-200 dark:text-amber-50 dark:hover:bg-gray-800' />
+
+
     );
 }
 

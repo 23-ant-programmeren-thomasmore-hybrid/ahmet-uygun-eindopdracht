@@ -9,6 +9,8 @@ import {ChatBubbleLeftEllipsisIcon} from "@heroicons/react/24/solid";
 import {ChevronDown} from "lucide-react";
 import Chat from "./Chat";
 import { motion } from "framer-motion";
+import {faRobot} from "@fortawesome/free-solid-svg-icons/faRobot";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function ChatBoxIcon() {
     const [isOpen, setIsOpen] = React.useState(false)
@@ -37,8 +39,7 @@ function ChatBoxIcon() {
                         {isOpen ?
                             <ChevronDown className="h-8 w-8"/>
                             :
-                            <ChatBubbleLeftEllipsisIcon className="h-8 w-8"/>
-
+                            <FontAwesomeIcon icon={faRobot} bounce className='text-2xl'/>
 
                         }
 
