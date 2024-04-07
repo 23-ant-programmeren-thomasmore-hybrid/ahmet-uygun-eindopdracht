@@ -17,20 +17,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children,}: { children: React.ReactNode; }) {
     return (
-        <html>
 
-        <Providers>
 
-            <body className='bg-gray-100 dark:bg-zinc-900 transition-all duration-700'>
-            <Header/>
+        <>
             <div className='max-w-6xl mx-auto'>{children}</div>
             <div className='flex items-center justify-end space-x-2'>
 
                 <ChatBoxIcon/>
             </div>
-            </body>
-        </Providers>
 
-        </html>
-);
+        </>
+
+
+    );
 }

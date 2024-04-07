@@ -8,6 +8,7 @@ import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {useChat} from "ai/react";
+import { motion } from "framer-motion";
 
 export default function Chat() {
     const ref = useRef<HTMLDivElement>(null)
@@ -19,9 +20,14 @@ export default function Chat() {
     }, [messages])
 
     return (
+        <motion.div initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}>
         <section className='text-zinc-700  '>
             <div className='container flex max-h-screen flex-col items-center justify-center rounded-2xl bg-white '>
-                <h1 className='font-serif text-2xl font-medium'>AI Chatbot </h1>
+                <motion.h1 initial={{ opacity: 0, y: -50 }}
+                           animate={{ opacity: 1, y: 0 }}
+                           transition={{ duration: 1 }} className='font-serif text-2xl font-medium'>AI Chatbot </motion.h1>
                 <div className='mt-4 w-full max-w-lg  '>
                     <ScrollArea
                         className='mb-2 h-[400px] rounded-md border p-1'
@@ -83,5 +89,6 @@ export default function Chat() {
                 </div>
             </div>
         </section>
+        </motion.div>
     )
 }

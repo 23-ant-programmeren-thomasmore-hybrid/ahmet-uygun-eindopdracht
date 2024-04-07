@@ -14,7 +14,7 @@ const fetchNews = async (
         });
 
     const newsResponse = await res.json();
-    return sortNewsByImage(newsResponse);
+    return newsResponse;
 }
 
 export default fetchNews;
