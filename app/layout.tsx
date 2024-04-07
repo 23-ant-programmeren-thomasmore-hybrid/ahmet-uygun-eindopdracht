@@ -3,6 +3,8 @@ import "./globals.css";
 import Header from "./ui/Header";
 import Providers from "./Providers";
 import React from "react";
+import {ThemeProvider} from "next-themes";
+import {Inter} from "next/dist/compiled/@next/font/dist/google";
 
 
 export const metadata: Metadata = {
@@ -13,18 +15,18 @@ export const metadata: Metadata = {
     }
 };
 
+
+
 export default function RootLayout({children,}: { children: React.ReactNode; }) {
     return (
-        <html>
+        <html lang="en" suppressHydrationWarning>
 
-        <Providers>
-
+        <ThemeProvider enableSystem={true} attribute="class">
             <body className='bg-gray-100 dark:bg-zinc-900 transition-all duration-700'>
             <Header/>
             <div className='max-w-6xl mx-auto'>{children}</div>
             </body>
-        </Providers>
-
+        </ThemeProvider>
         </html>
     );
 }

@@ -24,7 +24,7 @@ function ChatBoxIcon() {
             className="w-[350px] "
         >
 
-                <CollapsibleContent className="fixed top-36 right-0 mt-4 mr-4">
+                <CollapsibleContent>
                     <Chat/>
                 </CollapsibleContent>
 
