@@ -11,8 +11,10 @@ import Chat from "./Chat";
 import { motion } from "framer-motion";
 import {faRobot} from "@fortawesome/free-solid-svg-icons/faRobot";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-
-function ChatBoxIcon() {
+type Props = {
+    article: Article
+};
+function ChatBoxIcon({article}: Props) {
     const [isOpen, setIsOpen] = React.useState(false)
 
     return (
@@ -27,7 +29,7 @@ function ChatBoxIcon() {
         >
 
                 <CollapsibleContent>
-                    <Chat/>
+                    <Chat article={article}/>
                 </CollapsibleContent>
 
             <div className="flex items-center justify-end space-x-4 px-4">

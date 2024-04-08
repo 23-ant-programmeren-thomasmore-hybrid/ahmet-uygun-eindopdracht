@@ -2,7 +2,7 @@
 
 
 import {SendHorizonalIcon} from "lucide-react";
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 import {ScrollArea} from "@/components/ui/scroll-area";
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
@@ -10,14 +10,21 @@ import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {useChat} from "ai/react";
 import {motion} from "framer-motion";
 
-export default function Chat() {
+type Props = {
+    article: Article
+};
+export default function Chat({article}: Props) {
     const ref = useRef<HTMLDivElement>(null)
-    const {messages, input, handleInputChange, handleSubmit, isLoading} = useChat();
+
+
+    let {messages, input, handleInputChange, handleSubmit, isLoading, setInput} = useChat();
+
 
     useEffect(() => {
         if (ref.current === null) return
         ref.current.scrollTo(0, ref.current.scrollHeight)
     }, [messages])
+
 
     return (
         <motion.div initial={{opacity: 0, scale: 0.5}}
@@ -32,6 +39,9 @@ export default function Chat() {
                                className='font-serif text-2xl font-medium  rounded-xl  p-1 dark:bg-slate-800 dark:text-amber-50'>INSIGHT
                         AI
                     </motion.h1>
+                    <h1>powered by (Ahmet Nuri)</h1>
+
+
                     <div className='mt-4 w-full max-w-lg  '>
                         <ScrollArea
                             className='mb-2 h-[400px] rounded-md border  bg-white p-1 dark:bg-slate-400'
@@ -56,15 +66,41 @@ export default function Chat() {
                             </div>
                             <div className='flex flex-col gap-3'>
 
+
                                 <motion.button whileHover={{scale: 1.1}}
                                                whileTap={{scale: 0.9}}>
-                                    <Button className='bg-purple-500'> Show summary
-                                    </Button>
+                                    <form onSubmit={handleSubmit}>
+                                        <Button className='bg-purple-500'
+                                                onClick={() => setInput(`Could you please give a summary of this news : ${article.description}`)}> Summary
+                                            of news
+                                        </Button>
+                                    </form>
+
                                 </motion.button>
+
+
                                 <motion.button whileHover={{scale: 1.1}}
                                                whileTap={{scale: 0.9}}>
-                                    <Button className='bg-purple-500'> Translate to Dutch
-                                    </Button>
+                                    <form onSubmit={handleSubmit}>
+
+                                        <Button className='bg-purple-500'
+                                                onClick={() => setInput(`Could you please translate it do Dutch : ${article.description}`)}> Translate
+                                            news to Dutch
+                                        </Button>
+                                    </form>
+
+                                </motion.button>
+
+                                <motion.button whileHover={{scale: 1.1}}
+                                               whileTap={{scale: 0.9}}>
+                                    <form onSubmit={handleSubmit}>
+
+                                        <Button className='bg-purple-500'
+                                                onClick={() => setInput(`What is your opinion about this news : ${article.description}`)}> What
+                                            is your opinion about news?
+                                        </Button>
+                                    </form>
+
                                 </motion.button>
 
 
@@ -72,9 +108,9 @@ export default function Chat() {
 
 
                             {messages.map(m => (
-                                <div key={m.id} className='mr-6 whitespace-pre-wrap md:mr-12'>
+                                <div key={m.id} className='mr-6  whitespace-pre-wrap md:mr-12'>
                                     {m.role === 'user' && (
-                                        <div className='mb-6 flex gap-3'>
+                                        <div className='mb-6  flex gap-3'>
                                             <Avatar>
                                                 <AvatarImage src=''/>
                                                 <AvatarFallback className='text-sm'>U</AvatarFallback>
