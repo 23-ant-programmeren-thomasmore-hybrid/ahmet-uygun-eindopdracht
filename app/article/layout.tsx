@@ -21,10 +21,7 @@ export default function RootLayout({children,}: { children: React.ReactNode; }) 
 
         <>
             <div className='max-w-6xl mx-auto'>{children}</div>
-            {/*<div className='fixed bottom-10 right-0 mt-4 mr-4'>*/}
 
-            {/*    <ChatBoxIcon/>*/}
-            {/*</div>*/}
 
         </>
 

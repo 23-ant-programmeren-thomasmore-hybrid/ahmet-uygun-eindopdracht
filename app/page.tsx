@@ -2,6 +2,9 @@ import {Metadata} from "next";
 import fetchNews from "../lib/fetchNews";
 import {categories} from "../constants";
 import NewsList from "./ui/NewsList";
+import React, {Suspense} from "react";
+import Loading from "./loading";
+import Error from './error';
 
 // export const metadata: Metadata = {
 //     title: "INSIGHT NEWS",
@@ -18,7 +21,11 @@ import NewsList from "./ui/NewsList";
     const news : NewsResponse = await fetchNews(categories.join(","))
   return (
     <div>
-     <NewsList news={news}/>
+        <Suspense fallback={<Loading/>}>
+
+            <NewsList news={news}/>
+
+        </Suspense>
     </div>
   );
 }
