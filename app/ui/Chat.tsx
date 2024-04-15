@@ -136,7 +136,7 @@ export default function Chat({article}: Props) {
                                                 <div className='flex justify-between'>
                                                     <p className='font-semibold'>Bot</p>
                                                 </div>
-                                                <div className='mt-2 text-sm text-zinc-500'>
+                                                <div className='mt-2 text-sm text-zinc-500 dark:text-amber-50'>
                                                     {m.content}
                                                 </div>
                                             </div>
