@@ -9,7 +9,7 @@ const fetchNews = async (
 
     const res = await fetch(`http://api.mediastack.com/v1/news?access_key=${process.env.MEDIASTACK_API_KEY}&languages=en${keyword==null ? "" :  `&keywords=${keyword}`}&categories=${category}`,
         {
-            // cache:  isDynamic ? "no-cache" : "default" ,
+            cache:  isDynamic ? "no-cache" : "default" ,
             next:  isDynamic ? {revalidate:0} : {revalidate:20}
         });
 
