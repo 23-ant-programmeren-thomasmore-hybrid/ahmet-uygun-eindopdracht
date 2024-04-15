@@ -21,14 +21,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children,}: { children: React.ReactNode; }) {
     return (
-        <html lang="en" suppressHydrationWarning>
+        <html lang="en" >
 
-        <ThemeProvider enableSystem={true} attribute="class">
+
             <body className='bg-gray-100 dark:bg-zinc-900 transition-all duration-700'>
+            <Providers >
             <Header/>
             <div className='max-w-6xl mx-auto'>{children}</div>
+            </Providers>
+
             </body>
-        </ThemeProvider>
         </html>
     );
 }
