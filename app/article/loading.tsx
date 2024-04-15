@@ -13,7 +13,7 @@ function Loading() {
                 <section className='flex flex-col lg:flex-row pb-24 px-0 lg:px-10'>
 
                     <img className='h-50 max-w-md mx-auto md:max-w-lg lg:max-w-xl object-cover rounded-lg shadow-md'
-                             />
+                    />
                     )
                     <div className='px-10'>
                         <h1 className='headerTitle px-0 no-underline pb-2'></h1>
@@ -36,7 +36,6 @@ function Loading() {
 
             </div>
         </>
-
 
 
     );
