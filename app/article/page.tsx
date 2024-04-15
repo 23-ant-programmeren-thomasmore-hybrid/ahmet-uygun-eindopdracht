@@ -9,7 +9,7 @@ type Props = {
 }
 function ArticlePage({searchParams} : Props) {
     if((searchParams && Object.entries(searchParams).length===0) || !searchParams){
-        return notFound();
+        return <div>bir sey yok</div>;
     }
 
     const article:Article = searchParams;
