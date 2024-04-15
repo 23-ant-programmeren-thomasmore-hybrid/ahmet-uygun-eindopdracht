@@ -1,4 +1,3 @@
-import {Metadata} from "next";
 import fetchNews from "../lib/fetchNews";
 import {categories} from "../constants";
 import NewsList from "./ui/NewsList";
@@ -28,5 +27,6 @@ import Error from './error';
         </Suspense>
     </div>
   );
-}
-export  default Home;
+ }
+
+export default Home;

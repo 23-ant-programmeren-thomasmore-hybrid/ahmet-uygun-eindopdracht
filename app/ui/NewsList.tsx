@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import LiveTimestamp from "./LiveTimestamp";
 import ReadMoreButton from "./ReadMoreButton";
@@ -7,6 +7,7 @@ type Props = {
     news : NewsResponse ;
 }
 function NewsList({news} : Props) {
+
     return (
 
         <BentoGrid className="max-w-10xl max-h-10xl mx-auto">
